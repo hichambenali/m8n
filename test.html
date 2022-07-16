@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Coder Shiyar - Editor </title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+    integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+</head>
+
+<body>
+  <!-- Image and text -->
+  <nav class="navbar navbar-light bg-light">
+    <a class="navbar-brand" href="#">
+      Coder Shiyar
+    </a>
+
+    <img src="logo.png" />
+
+  </nav>
+
+  <main>
+    <textarea id="codes">
+     <html> 
+         <head></head>
+         <body></body>
+     </html>
+    </textarea>
+
+    
+
+    <div id="buttons">
+      <button id="remove"> حذف الأكواد</button>
+      <button id="play"> تشغيل الأكواد </button>
+    </div>
+    <div>
+      <p id="title-result">Result - النتيجة</p>
+    </div>
+
+  </main>
+
+  <div id="result"></div>
+
+
+  <script>
+
+
+    let codes = document.getElementById("codes");
+    let play = document.getElementById("play");
+    let remove = document.getElementById("remove");
+    let result = document.getElementById("result");
+
+    play.onclick = () => {
+      result.innerHTML = codes.value;
+      localStorage.setItem("RESULT", codes.value);
+    };
+    remove.onclick = () => {
+      result.innerHTML = "";
+
+    }
+
+    onload = () => {
+      codes.value = localStorage.getItem("RESULT");
+      result.innerHTML = codes.value;
+    }
+  
+  </script>
+
+  <style>
+    nav img {
+      max-width: 64px;
+      max-height: 64px;
+      object-fit: scale-down;
+      border-radius: 50%;
+    }
+
+    #codes {
+      width: 380px;
+      min-height: 250px;
+      border-radius: 16px;
+      border: 2px solid rgb(131, 131, 131);
+    }
+    #codes {
+      width: 380px;
+      min-height: 250px;
+      border-radius: 16px;
+      border: 2px solid rgb(131, 131, 131);
+    }
+
+    #buttons {
+      display: flex;
+      justify-content: space-evenly;
+    }
+
+    #buttons button {
+      width: 47%;
+      border-radius: 12px;
+      border: 0px;
+      padding: 10px;
+    }
+
+    #remove {
+      background-color: rgb(255, 30, 30);
+      color: white;
+    }
+
+    #play {
+      background-color: rgb(39, 39, 39);
+      color: white;
+    }
+
+    #title-result {
+      padding: 10px;
+      border-bottom: 2px solid rgb(131, 131, 131);
+      margin: 8px 0px;
+      font-weight: bold;
+    }
+
+    #result {
+      max-width: 100% !important;
+    }
+  </style>
+</body>
+
+</html>
